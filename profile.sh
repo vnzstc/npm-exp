@@ -17,7 +17,7 @@ fi
 OUTPUT_CSV="$1"
 shift
 
-# Remaining args ("$@") are the command to profile
+#Remaining args ("$@") are the command to profile
  
 "$@" &
 TARGET_PID=$!
@@ -30,7 +30,7 @@ joularcore -p "$TARGET_PID" -f "$OUTPUT_CSV"/power.csv &
 JOULAR_PID=$!
  
 # Memory Activity (measures memory every second)
-# perf stat -p $TARGET_PID -e cycles,instructions,cache-references,cache-misses,page-faults,context-switches -I 1000 -o perf_measurement.txt &
+#perf stat -p $TARGET_PID -e cycles,instructions,cache-references,cache-misses,page-faults,context-switches -I 1000 -o perf_measurement.txt &
 # PERF_PID=$!
  
 wait "$TARGET_PID"
