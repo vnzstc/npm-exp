@@ -21,8 +21,10 @@ cmd="${args[@]:1:3}"
 #fi
 #
 
-if [[ "${args[1]}" == "tar" ]] then
+if [[ "${args[1]}" == "tar" ]]; then
 	cmd="${cmd} -C ${args[4]}"
+elif [[ "${args[1]}" == "zstd" ]]; then
+	cmd="${cmd} -o ${args[4]}output.tar"
 else
 	cmd="${cmd} > ${args[4]}output.tar"
 fi
